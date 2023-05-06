@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:netschool/theme/theme.dart';
+import '../../resources/resources.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -61,7 +63,7 @@ class _DownWidgetState extends State<_DownWidget> {
         child: Column(children: [
           FormWidget(),
           SizedBox(
-            height: 150,
+            height: 140,
           ),
           _Fotter()
         ]),
@@ -266,7 +268,7 @@ class _DownText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20, left: 60, right: 60), //10
+      padding: const EdgeInsets.only(top: 20, left: 50, right: 50), //10
       child: Container(
         width: double.infinity,
         child: Text(
@@ -281,7 +283,7 @@ class _UpText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 120, left: 60), //25
+      padding: const EdgeInsets.only(top: 120, left: 50), //25
       child: Container(
         width: double.infinity,
         child: Text('NetSchool', style: textDecorationExtraBold),

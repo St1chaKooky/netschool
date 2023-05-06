@@ -12,6 +12,22 @@ final colorBlack = Color.fromARGB(255, 0, 0, 0);
 final colorLineBlack = Color.fromRGBO(203, 203, 203, 1);
 final colorGrey = Color.fromRGBO(43, 43, 43, 1);
 
+final textListName = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+  color: colorGrey,
+  fontSize: 14.0,
+  fontFamily: 'Montserrat',
+  fontWeight: FontWeight.w800,
+));
+
+final textListData = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+  color: colorGreyText,
+  fontSize: 12.0,
+  fontFamily: 'Montserrat',
+  fontWeight: FontWeight.w700,
+));
+
 //Стиль регуляр текста
 final textDecorationRegular = GoogleFonts.montserrat(
   textStyle: TextStyle(
@@ -124,7 +140,14 @@ final textButton2 = GoogleFonts.montserrat(
     fontWeight: FontWeight.w900,
   ),
 );
-
+final textButton3 = GoogleFonts.montserrat(
+  textStyle: TextStyle(
+    color: colorBase,
+    fontSize: 14.0,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w800,
+  ),
+);
 final textOfMainPage = GoogleFonts.montserrat(
   textStyle: TextStyle(
     color: colorBase,
@@ -154,6 +177,13 @@ final buttonText = ButtonStyle(
   overlayColor: MaterialStateProperty.all(colorOverlayGrey),
 );
 
+final buttonTextComent = ButtonStyle(
+  padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.zero),
+  foregroundColor: MaterialStateProperty.all(
+    colorGreyText,
+  ),
+  overlayColor: MaterialStateProperty.all(colorOverlayGrey),
+);
 //Стиль для текста текстовой кнопки
 final buttonTextStyle = GoogleFonts.montserrat(
   textStyle: TextStyle(
@@ -161,5 +191,31 @@ final buttonTextStyle = GoogleFonts.montserrat(
     fontSize: 14.0,
     fontFamily: 'Montserrat',
     fontWeight: FontWeight.w400,
+  ),
+);
+final buttonTextStyleComent = GoogleFonts.montserrat(
+  textStyle: TextStyle(
+    color: colorGreyText,
+    fontSize: 12.0,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w400,
+  ),
+);
+
+final buttonTextStyleLike = GoogleFonts.montserrat(
+  textStyle: TextStyle(
+    color: colorGrey,
+    fontSize: 12.0,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600,
+  ),
+);
+
+final buttonTextStylText = GoogleFonts.montserrat(
+  textStyle: TextStyle(
+    color: colorGrey,
+    fontSize: 14.0,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600,
   ),
 );

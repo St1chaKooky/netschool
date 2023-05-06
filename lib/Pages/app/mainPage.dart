@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:netschool/resources/resources.dart';
 import '../../theme/theme.dart';
+import 'Profil/mainProfil.dart';
 import 'movie_list_widget/movie_list_widget.dart';
 
 class MainPage extends StatefulWidget {
@@ -11,13 +13,17 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  // String? _name;
+
   int _selectTab = 0;
   static const List<Widget> _listWidget = [
     MovieList(),
     Text('Поиск'),
     Text('Добавить историю'),
     Text('Добавить публикацию'),
-    Text('Профиль'),
+    Profil(
+      name: 'xxxmanerka',
+    ),
   ];
 
   void onSelectTab(int value) {
@@ -29,42 +35,74 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorLineBlack,
-      appBar: AppBar(
-        toolbarHeight: 80,
-        title: Text(
-          'NetSchool',
-          style: textOfMainPage,
-        ),
-      ),
-      body: Center(
-        child: _listWidget[_selectTab],
-      ),
+      backgroundColor: Colors.white,
+      appBar: _selectTab == 0
+          ? AppBar(
+              toolbarHeight: 60,
+              elevation: 0,
+              title: Text(
+                'NetSchool',
+                style: textOfMainPage,
+              ),
+            )
+          : null,
+      body: _listWidget[_selectTab],
       bottomNavigationBar: BottomNavigationBar(
-        selectedFontSize: 24.0, // Размер шрифта для выбранного элемента
-        unselectedFontSize: 24.0,
-        selectedItemColor: colorGrey, // Цвет выбранного элемента
+        selectedFontSize: 12.0, // Размер шрифта для выбранного элемента
+        unselectedFontSize: 12.0,
+        selectedItemColor: colorBase, // Цвет выбранного элемента
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectTab,
         items: [
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(MyImages.home)),
+            icon: SizedBox(
+                width: 24, height: 24, child: SvgPicture.asset(MyImages.home)),
+            activeIcon: SizedBox(
+                width: 24,
+                height: 24,
+                child: SvgPicture.asset(MyImages.home, color: colorBase)),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(MyImages.search)),
+            icon: SizedBox(
+                width: 24,
+                height: 24,
+                child: SvgPicture.asset(MyImages.search)),
+            activeIcon: SizedBox(
+                width: 24,
+                height: 24,
+                child: SvgPicture.asset(MyImages.search, color: colorBase)),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(MyImages.addHistory)),
+            icon: SizedBox(
+                width: 24,
+                height: 24,
+                child: SvgPicture.asset(MyImages.addHistory)),
+            activeIcon: SizedBox(
+                width: 24,
+                height: 24,
+                child: SvgPicture.asset(MyImages.addHistory, color: colorBase)),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(MyImages.addPhoto)),
+            icon: SizedBox(
+                width: 24,
+                height: 24,
+                child: SvgPicture.asset(MyImages.addPhoto)),
+            activeIcon: SizedBox(
+                width: 24,
+                height: 24,
+                child: SvgPicture.asset(MyImages.addPhoto, color: colorBase)),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(MyImages.user)),
+            icon: SizedBox(
+                width: 24, height: 24, child: SvgPicture.asset(MyImages.user)),
+            activeIcon: SizedBox(
+                width: 24,
+                height: 24,
+                child: SvgPicture.asset(MyImages.user, color: colorBase)),
             label: '',
           ),
         ],
