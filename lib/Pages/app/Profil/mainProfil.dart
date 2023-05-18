@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:netschool/theme/theme.dart';
 import '../../../resources/resources.dart';
+import 'dart:io';
 
 class Profil extends StatefulWidget {
   final String name;
@@ -16,6 +18,19 @@ class Profil extends StatefulWidget {
 }
 
 class _ProfilState extends State<Profil> {
+  File? _image;
+
+  Future<void> _pickImage() async {
+    final picker = ImagePicker();
+    final pickedImage = await picker.getImage(source: ImageSource.gallery);
+
+    if (pickedImage != null) {
+      setState(() {
+        _image = File(pickedImage.path);
+      });
+    }
+  }
+
   void redact() {
     print('helllooo');
   }
@@ -84,7 +99,6 @@ class _ProfilState extends State<Profil> {
                           icon: SvgPicture.asset(MyImages.menu)),
                     ],
                   ),
-                  
                   SizedBox(
                     height: 25,
                   ),
@@ -160,19 +174,32 @@ class _ProfilState extends State<Profil> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: ElevatedButton(
-                onPressed: () {},
-                child: Text('Добавить публикацию', style: textButton3),
-                style: styleButton2,
+                onPressed: _pickImage,
+                child: Text('Добавить публикацию', style: buttonTextForGray),
+                style: styleButton3,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+              padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
               child: Container(
                 width: 300,
                 height: 1,
                 color: colorGreyText,
               ),
             ),
+            Column(
+              children: [
+                _image != null
+                    ? Image.file(
+                        _image!,
+                        height: 200,
+                      )
+                    : Text(
+                        'Изображение не выбрано',
+                        style: TextStyle(fontSize: 20),
+                      ),
+              ],
+            )
           ],
         ));
   }

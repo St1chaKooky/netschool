@@ -110,7 +110,7 @@ final styleButton2 = ButtonStyle(
     )),
     backgroundColor: MaterialStateProperty.all(colorWhite),
     foregroundColor: MaterialStateProperty.all(colorWhite),
-    overlayColor: MaterialStateProperty.all(colorOverlayGrey),
+    overlayColor: MaterialStateProperty.all(colorLineBlack),
     shadowColor: MaterialStateProperty.all(colorBlack),
     elevation: MaterialStateProperty.all(
         0), //на скок высоко кнопка над плоскостью - ругулируется тенью
@@ -120,6 +120,32 @@ final styleButton2 = ButtonStyle(
       borderRadius: BorderRadius.circular(10),
     )) //минимальный рамзер // по центру
     );
+
+// final styleButton3 = ButtonStyle(
+//   backgroundColor: MaterialStateProperty.all(colorLineBlack),
+//   foregroundColor: MaterialStateProperty.all(colorWhite),
+//   overlayColor: MaterialStateProperty.all(colorOverlayGrey),
+//   shadowColor: MaterialStateProperty.all(colorBlack),
+//   elevation: MaterialStateProperty.all(0),
+//   padding: MaterialStateProperty.all(EdgeInsets.zero),
+//   minimumSize: MaterialStateProperty.all(Size(140, 40)),
+//   shape: MaterialStateProperty.all(RoundedRectangleBorder(
+//     borderRadius: BorderRadius.circular(10),
+//   )),
+// );
+final styleButton3 = ElevatedButton.styleFrom(
+  visualDensity: VisualDensity.compact,
+  backgroundColor: colorLineBlack,
+  foregroundColor: colorWhite,
+  // overlayColor:colorOverlayGrey,
+  shadowColor: colorBlack,
+  elevation: 0,
+  padding: EdgeInsets.zero,
+  minimumSize: Size(140, 40),
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(10),
+  ),
+);
 
 //Стиль текста для кнопки
 final textButton = GoogleFonts.montserrat(
@@ -140,14 +166,7 @@ final textButton2 = GoogleFonts.montserrat(
     fontWeight: FontWeight.w900,
   ),
 );
-final textButton3 = GoogleFonts.montserrat(
-  textStyle: TextStyle(
-    color: colorBase,
-    fontSize: 14.0,
-    fontFamily: 'Montserrat',
-    fontWeight: FontWeight.w800,
-  ),
-);
+
 final textOfMainPage = GoogleFonts.montserrat(
   textStyle: TextStyle(
     color: colorBase,
@@ -217,5 +236,13 @@ final buttonTextStylText = GoogleFonts.montserrat(
     fontSize: 14.0,
     fontFamily: 'Montserrat',
     fontWeight: FontWeight.w600,
+  ),
+);
+final buttonTextForGray = GoogleFonts.montserrat(
+  textStyle: TextStyle(
+    color: colorWhite,
+    fontSize: 14.0,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w700,
   ),
 );
