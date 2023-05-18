@@ -12,6 +12,14 @@ final colorBlack = Color.fromARGB(255, 0, 0, 0);
 final colorLineBlack = Color.fromRGBO(203, 203, 203, 1);
 final colorGrey = Color.fromRGBO(43, 43, 43, 1);
 
+final textLogIn = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+  color: colorBlack,
+  fontSize: 52.0,
+  fontFamily: 'Montserrat',
+  fontWeight: FontWeight.w900,
+));
+
 final textListName = GoogleFonts.montserrat(
     textStyle: TextStyle(
   color: colorGrey,
@@ -121,6 +129,22 @@ final styleButton2 = ButtonStyle(
     )) //минимальный рамзер // по центру
     );
 
+//Черная кнопка с белым текстом
+final styleButton4 = ButtonStyle(
+    backgroundColor: MaterialStateProperty.all(colorBlack),
+    foregroundColor: MaterialStateProperty.all(colorWhite),
+    overlayColor: MaterialStateProperty.all(colorOverlayPurple),
+    shadowColor: MaterialStateProperty.all(colorBlack),
+    elevation: MaterialStateProperty.all(
+        0), //на скок высоко кнопка над плоскостью - ругулируется тенью
+    padding: MaterialStateProperty.all(
+        EdgeInsets.only(left: 30, right: 30)), // отступы от краев
+    minimumSize: MaterialStateProperty.all(Size(140, 40)),
+    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    )) //минимальный рамзер // по центру
+    );
+
 // final styleButton3 = ButtonStyle(
 //   backgroundColor: MaterialStateProperty.all(colorLineBlack),
 //   foregroundColor: MaterialStateProperty.all(colorWhite),
@@ -143,7 +167,7 @@ final styleButton3 = ElevatedButton.styleFrom(
   padding: EdgeInsets.zero,
   minimumSize: Size(140, 40),
   shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(10),
+    borderRadius: BorderRadius.circular(7),
   ),
 );
 
@@ -202,6 +226,15 @@ final buttonTextComent = ButtonStyle(
     colorGreyText,
   ),
   overlayColor: MaterialStateProperty.all(colorOverlayGrey),
+);
+//Стиль для текста текстовой кнопки
+final buttonTextStyle2 = GoogleFonts.montserrat(
+  textStyle: TextStyle(
+    color: colorBlack,
+    fontSize: 14.0,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w400,
+  ),
 );
 //Стиль для текста текстовой кнопки
 final buttonTextStyle = GoogleFonts.montserrat(

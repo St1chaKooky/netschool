@@ -60,13 +60,7 @@ class _DownWidgetState extends State<_DownWidget> {
       ),
       child: Container(
         color: Colors.white,
-        child: Column(children: [
-          FormWidget(),
-          SizedBox(
-            height: 140,
-          ),
-          _Fotter()
-        ]),
+        child: Column(children: [FormWidget()]),
       ),
     );
   }
@@ -147,13 +141,11 @@ class _FormWidgetState extends State<FormWidget> {
             hintStyle: textInputStyle,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
-              borderSide: BorderSide(
-                  color: Color.fromRGBO(169, 61, 255, 1), width: 2.0),
+              borderSide: BorderSide(color: colorBlack, width: 2.0),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
-              borderSide: BorderSide(
-                  color: Color.fromRGBO(169, 61, 255, 1), width: 3.0),
+              borderSide: BorderSide(color: colorBlack, width: 3.0),
             ),
             contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             fillColor: Colors.white,
@@ -174,13 +166,11 @@ class _FormWidgetState extends State<FormWidget> {
             hintStyle: textInputStyle,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
-              borderSide: BorderSide(
-                  color: Color.fromRGBO(169, 61, 255, 1), width: 2.0),
+              borderSide: BorderSide(color: colorBlack, width: 2.0),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
-              borderSide: BorderSide(
-                  color: Color.fromRGBO(169, 61, 255, 1), width: 3.0),
+              borderSide: BorderSide(color: colorBlack, width: 3.0),
             ),
             contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             fillColor: Colors.white,
@@ -190,15 +180,6 @@ class _FormWidgetState extends State<FormWidget> {
           controller: _paswordTextController,
           // obscureText: true,
         ),
-        if (_errorText != null) ...[
-          Text(
-            'Не верный логин или пароль',
-            style: errorTextStyle,
-          ),
-          SizedBox(
-            height: 15,
-          )
-        ],
         ElevatedButton(
           onPressed: () => setState(() {
             auth();
@@ -215,9 +196,56 @@ class _FormWidgetState extends State<FormWidget> {
             'Войти',
             style: textButton,
           ),
-          style: styleButton,
+          style: styleButton4,
         ),
         MyButtonText(text: 'Забыли пароль?'),
+        Stack(children: [
+          if (_errorText != null) ...[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Не верный логин или пароль',
+                  style: errorTextStyle,
+                ),
+              ],
+            ),
+          ],
+          SizedBox(
+            height: 160,
+            width: 300,
+          ),
+          Positioned.fill(
+            top: 140,
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'Нет аккаунта?',
+                          style: textInputStyle,
+                        ),
+                        TextSpan(
+                          text: 'Зарегистрируйся',
+                          style: inTextButton,
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.of(context).pushNamed('/register');
+                              // Navigator.of(context).restorablePushReplacementNamed('/main_screen');
+                            },
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ]),
       ],
     );
   }
@@ -240,7 +268,7 @@ class _MyButtonTextState extends State<MyButtonText> {
       onLongPress: () => print('longPress3'),
       child: Text(
         widget.text,
-        style: buttonTextStyle,
+        style: buttonTextStyle2,
       ),
       style: buttonText,
     );
@@ -251,46 +279,23 @@ class _UpWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromRGBO(169, 61, 255, 1),
-      width: double.infinity,
-      height: 334.3, //40%
-      child: Column(
-        children: [
-          _UpText(),
-          _DownText(),
-        ],
-      ),
-    );
+        color: Color.fromRGBO(255, 255, 255, 1),
+        width: double.infinity,
+        height: 334.3, //40%
+        child: Center(
+            child: Padding(
+          padding: const EdgeInsets.only(top: 200),
+          child: Text(
+            'Log in',
+            style: textLogIn,
+          ),
+        )));
   }
 }
 
-class _DownText extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20, left: 50, right: 50), //10
-      child: Container(
-        width: double.infinity,
-        child: Text(
-            'NetSchool - это платформа, где ученики и учителя могут взаимодейстовать друг с другом, создавать чаты,  следить за жизнью с помощью NS History, во всем Приднестровье',
-            style: textDecorationRegular),
-      ),
-    );
-  }
-}
 
-class _UpText extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 120, left: 50), //25
-      child: Container(
-        width: double.infinity,
-        child: Text('NetSchool', style: textDecorationExtraBold),
-      ),
-    );
-  }
-}
+
+
 // class MyInput2 extends StatefulWidget {
 //   late int length;
 //   late bool obscure;
