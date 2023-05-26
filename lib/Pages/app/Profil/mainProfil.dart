@@ -196,7 +196,7 @@ class _ProfilState extends State<Profil> {
                       )
                     : Text(
                         'Изображение не выбрано',
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 10),
                       ),
               ],
             )

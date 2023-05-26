@@ -15,7 +15,7 @@ final colorGrey = Color.fromRGBO(43, 43, 43, 1);
 final textLogIn = GoogleFonts.montserrat(
     textStyle: TextStyle(
   color: colorBlack,
-  fontSize: 52.0,
+  fontSize: 48.0,
   fontFamily: 'Montserrat',
   fontWeight: FontWeight.w900,
 ));
