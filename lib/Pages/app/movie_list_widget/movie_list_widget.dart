@@ -234,6 +234,5 @@ class _PostState extends State<Post> {
         ),
       ]),
     );
-    ;
   }
 }

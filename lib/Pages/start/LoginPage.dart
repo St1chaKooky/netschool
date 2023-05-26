@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
+// import 'package:flutter_svg/svg.dart';
 import 'package:netschool/theme/theme.dart';
-import '../../resources/resources.dart';
+// import '../../resources/resources.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

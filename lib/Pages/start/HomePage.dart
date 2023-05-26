@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:netschool/Pages/start/LoginPage.dart';
+// import 'package:netschool/Pages/start/LoginPage.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
